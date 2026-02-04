@@ -367,7 +367,9 @@ export class License implements LicenseProvider {
 
 	/** @deprecated Use `LicenseState.isCustomNpmRegistryLicensed` instead. */
 	isCustomNpmRegistryEnabled() {
-		return this.isLicensed(LICENSE_FEATURES.COMMUNITY_NODES_CUSTOM_REGISTRY);
+		// DEV: Allow custom registry for testing without enterprise license
+		// This branch is for local testing of custom node packages from Nexus
+		return true;
 	}
 
 	/** @deprecated Use `LicenseState.isFoldersLicensed` instead. */
